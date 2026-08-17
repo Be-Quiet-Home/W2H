@@ -14,7 +14,7 @@ W2HView::W2HView(BRect frame)
         frame,
         "w2h-view",
         B_FOLLOW_ALL,
-        B_WILL_DRAW | B_NAVIGABLE),
+        B_WILL_DRAW | B_NAVIGABLE | B_FULL_UPDATE_ON_RESIZE),
     fInputObserved(false)
 {
     SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));

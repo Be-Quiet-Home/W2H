@@ -4,6 +4,7 @@
 #include <Window.h>
 
 
+class BView;
 class W2HView;
 
 
@@ -14,6 +15,7 @@ public:
     void MessageReceived(BMessage* message) override;
 
 private:
+    BView* fDesktopView;
     W2HView* fView;
 };
 

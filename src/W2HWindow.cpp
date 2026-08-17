@@ -3,6 +3,8 @@
 #include "Messages.h"
 #include "W2HView.h"
 
+#include <View.h>
+
 
 W2HWindow::W2HWindow()
     :
@@ -11,9 +13,15 @@ W2HWindow::W2HWindow()
         "W2H",
         B_TITLED_WINDOW,
         B_QUIT_ON_WINDOW_CLOSE),
-    fView(new W2HView(Bounds()))
+    fDesktopView(new BView(
+        Bounds(),
+        "w2h-desktop",
+        B_FOLLOW_ALL,
+        0)),
+    fView(new W2HView(fDesktopView->Bounds()))
 {
-    AddChild(fView);
+    AddChild(fDesktopView);
+    fDesktopView->AddChild(fView);
     fView->MakeFocus(true);
 }
 
